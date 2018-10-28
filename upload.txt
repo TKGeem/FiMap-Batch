@@ -1,0 +1,40 @@
+
+import urllib.request
+import csv
+from py_nifty_cloud.nifty_cloud_request import NiftyCloudRequest
+ncr = NiftyCloudRequest('C:/Users/kohki_iwabuchi/Desktop/TKGS/nifty_cloud.yml')
+path = '/classes/TestClass'
+method = 'POST'
+key_list=['登録番号','施設名称','住所','電話番号','URL','緯度','経度','場所情報コード']
+cng_list=['Registration_Number','Accommodadation_Name','Address','Phone_Number','URL','Longitude','Latitude','Location_Information_Code']
+def download_csv():
+    #hotel = "https://www.hokoukukan.go.jp/uploads/30/82/list_of_hotels201803.csv"
+    #ryokan = "https://www.hokoukukan.go.jp/uploads/30/83/list_of_ryokans201803.csv"
+    hotel ="https://www.hokoukukan.go.jp/uploads/30/80/hotel_ichiran201803.csv"
+    ryokan = "https://www.hokoukukan.go.jp/uploads/30/81/ryokan_ichiran201803.csv"
+    urllib.request.urlretrieve(hotel,'C:/Users/kohki_iwabuchi/Desktop/TKGS/csv/hotel.csv')
+    urllib.request.urlretrieve(ryokan,'C:/Users/kohki_iwabuchi/Desktop/TKGS/csv/ryokan.csv')
+
+def upload_Hotel_csv():
+    f=csv.DictReader(open('C:/Users/kohki_iwabuchi/Desktop/TKGS/csv/hotel.csv', 'r'))
+    h_data = {}
+    for value in f:
+        for key, keychanger in zip(key_list, cng_list):
+            h_data[keychanger] = value[key]
+        response = ncr.post(path=path, query=h_data)
+
+def upload_Ryokan_csv():
+    f=csv.DictReader(open('C:/Users/kohki_iwabuchi/Desktop/TKGS/csv/ryokan.csv', 'r'))
+    h_data = {}
+    for value in f:
+        for key,keychanger in zip(key_list,cng_list):
+            h_data[keychanger] = value[key]
+        response = ncr.post(path=path, query=h_data)
+
+if __name__=='__main__':
+    download_csv()
+    print("download")
+    upload_Hotel_csv()
+    print("hotel")
+    upload_Ryokan_csv()
+    print("ryokan")
