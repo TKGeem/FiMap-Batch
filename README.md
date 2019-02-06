@@ -11,6 +11,9 @@ python3 main.py
 ## Usage example
 Nothing special
 
+## Etc..
+Server was implemented with collaborators (https://github.com/suzuryu/tkgAPI)
+
 ## License
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
