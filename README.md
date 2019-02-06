@@ -1,5 +1,5 @@
 # FiMap-Batch
-> TKEeem's python batch. to post data for db.
+> TKGeem's python batch. to post data for db.
 
 ## Installation & Setup
 In terminal:
