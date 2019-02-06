@@ -7,7 +7,7 @@ import csv
 
 wifi = "https://www.hokoukukan.go.jp/download/jta_free_wifi.csv"
 file_name = 'jta_free_wifi.csv'
-url = 'http://192.168.1.15:3020/api/wifi/addPoints'
+url = 'http://35.227.170.93/api/wifi/addPoints'
 method = 'POST'
 datas = []
 key_list = ['スポットID', 'スポット名（日本語）', 'スポット名（英語）', 'スポットステータス', 'カテゴリー', '利用可能場所', '郵便番号', '都道府県', '住所（日本語）', '住所（英語）',
@@ -57,7 +57,7 @@ def upload_list():
 
 if __name__ == '__main__':
     print("downloading...")
-    #download(wifi, file_name)
+    download(wifi, file_name)
     make_dict()
     print("uploading...")
     upload_list()
