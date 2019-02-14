@@ -11,7 +11,7 @@ python3 main.py
 ## Usage example
 Nothing special
 
-## Etc..
+## Other
 Server was implemented with collaborators (https://github.com/suzuryu/tkgAPI)
 
 ## License
